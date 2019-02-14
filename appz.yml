@@ -1,0 +1,30 @@
+app:
+  name: LogCollectorGL
+  code: LCGL
+  notify: appz@cloudbourne.co
+
+build:
+  version: 2.9
+  env: DEV
+  build_file: none
+  output_files: output/*.zip
+  image_template: graylog
+  image_name: myco/log-collector-gl
+
+deploy:
+  context: myco/DEV
+  replicas: 1
+  port:
+  - 9000
+  - 12201
+
+volumes:
+- claim: graylog-pvc
+  mount: /appz/data
+  name: data
+
+monitor:
+  notify: appzops@cloudbourne.co      
+
+properties:
+  revision : 14

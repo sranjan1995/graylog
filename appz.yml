@@ -20,7 +20,7 @@ deploy:
 
 volumes:
 - claim: graylog-pvc
-  mount: /appz/data
+  mount: /usr/share/graylog/data/journal
   name: data
 
 monitor:

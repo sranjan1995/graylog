@@ -8,26 +8,26 @@ build:
   env: DEV
   build_file: none
   output_files: output/*.zip
-  image_template: graylog
-  image_name: myco/log-collector-gl
+  image_template: graylog-3.0
+  image_name: alpha/log-collector-gl
 
 deploy:
-  context: myco/DEV
+  context: alpha/DEV
   replicas: 1
   port:
   - 9000
   - 12201
 
 volumes:
-- claim: graylog-pvc
+- claim: graylog-data
   mount: /usr/share/graylog/data/journal
-  name: data
+  name: graylog-data
 
 monitor:
   notify: appzops@cloudbourne.co      
 
 properties:
-  revision : 20
+  revision : 27
   GRAYLOG_MONGODB_URI : mongodb://appz-logcollectordb-2-9:27017/graylog  
   GRAYLOG_ELASTICSEARCH_HOSTS : http://appz-logcollectores-2-9:9200/
   GRAYLOG_ELASTICSEARCH_DISCOVERY_ENABLED : false

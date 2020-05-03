@@ -28,7 +28,7 @@ monitor:
 
 properties:
   revision : 07
-  GRAYLOG_MONGODB_URI : mongodb://appz-logcollectordb-2-9:27017/graylog  
-  GRAYLOG_ELASTICSEARCH_HOSTS : http://appz-logcollectores-2-9:9200/
+  GRAYLOG_MONGODB_URI : mongodb://appz-logcollectordb-3-1:27017/graylog  
+  GRAYLOG_ELASTICSEARCH_HOSTS : http://appz-logcollectores-3-1:9200/
   GRAYLOG_ELASTICSEARCH_DISCOVERY_ENABLED : false
   GRAYLOG_ROOT_PASSWORD_SHA2 : aee6e0898de4b1316dabd00451ebeb3ec9e7fd9c03520497eff2b0a29bfdc776

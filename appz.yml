@@ -27,7 +27,7 @@ monitor:
   notify: appzops@cloudbourne.co      
 
 properties:
-  revision : 26
+  revision : 27
   GRAYLOG_MONGODB_URI : mongodb://appz-logcollectordb-3-1:27017/graylog  
   GRAYLOG_ELASTICSEARCH_HOSTS : http://appz-logcollectores-3-1:9200/
   GRAYLOG_ELASTICSEARCH_DISCOVERY_ENABLED : false

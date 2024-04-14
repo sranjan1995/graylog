@@ -27,7 +27,7 @@ monitor:
   notify: srswain@ecloudcontrol.com      
 
 properties:
-  revision : 25
+  revision : 1
   GRAYLOG_MONGODB_URI : mongodb://mongodb-4-4:27017/graylog  
   GRAYLOG_ELASTICSEARCH_HOSTS : http://opensearch-2-13:9200/
   GRAYLOG_ELASTICSEARCH_DISCOVERY_ENABLED : false

@@ -1,18 +1,18 @@
 app:
   name: LogCollectorGL
   code: LCGL
-  notify: appz@cloudbourne.co
+  notify: srswain@ecloudcontrol.com
 
 build:
   version: 3.1
   env: DEV
   build_file: none
   output_files: output/*.zip
-  image_template: graylog-3.1
-  image_name: alpha/log-collector-gl
+  image_template: graylog-5.2
+  #image_name: alpha/log-collector-gl
 
 deploy:
-  context: alpha/DEV
+  context: sranjan1995/DEV
   replicas: 1
   port:
   - 9000
@@ -24,11 +24,11 @@ volumes:
   name: graylog-data
 
 monitor:
-  notify: appzops@cloudbourne.co      
+  notify: srswain@ecloudcontrol.com      
 
 properties:
   revision : 25
-  GRAYLOG_MONGODB_URI : mongodb://appz-logcollectordb-3-1:27017/graylog  
-  GRAYLOG_ELASTICSEARCH_HOSTS : http://appz-logcollectores-3-1:9200/
+  GRAYLOG_MONGODB_URI : mongodb://mongodb-4-4:27017/graylog  
+  GRAYLOG_ELASTICSEARCH_HOSTS : http://opensearch-2-13:9200/
   GRAYLOG_ELASTICSEARCH_DISCOVERY_ENABLED : false
   GRAYLOG_ROOT_PASSWORD_SHA2 : aee6e0898de4b1316dabd00451ebeb3ec9e7fd9c03520497eff2b0a29bfdc776

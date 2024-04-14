@@ -22,6 +22,8 @@ deploy:
 volumes:
 - claim: graylog-data
   mount: /usr/share/graylog/data/journal
+  size: 10Gi
+  mode: ReadWriteOnce
   name: graylog-data
 
 monitor:

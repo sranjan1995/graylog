@@ -19,9 +19,9 @@ deploy:
   - 12201
 
 volumes:
-- claim: graylog-data
+- claim: graylog5-data
   mount: /usr/share/graylog/data/journal
-  name: graylog-data
+  name: graylog5-data
 
 monitor:
   notify: srswain@ecloudcontrol.com      

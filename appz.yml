@@ -4,12 +4,12 @@ app:
   notify: srswain@ecloudcontrol.com
 
 build:
-  version: 3.1
+  version: 5.2
   env: DEV
   build_file: none
   output_files: output/*.zip
   image_template: graylog-5.2
-  #image_name: alpha/log-collector-gl
+  image_name: sranjan1995/log-collector-gl
 
 deploy:
   context: sranjan1995/DEV
@@ -19,9 +19,9 @@ deploy:
   - 12201
 
 volumes:
-- claim: graylog5-data
+- claim: graylog-data
   mount: /usr/share/graylog/data/journal
-  name: graylog5-data
+  name: graylog-data
 
 monitor:
   notify: srswain@ecloudcontrol.com      

@@ -4,7 +4,7 @@ app:
   notify: srswain@ecloudcontrol.com
 
 build:
-  version: 5
+  version: 5.0
   env: DEV
   build_file: none
   output_files: output/*.zip

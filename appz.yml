@@ -9,7 +9,7 @@ build:
   build_file: none
   output_files: output/*.zip
   image_template: graylog-5.2
-  image_name: sranjan1995/log-collector-gl
+  #image_name: sranjan1995/log-collector-gl
 
 deploy:
   context: sranjan1995/DEV

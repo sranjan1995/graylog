@@ -31,7 +31,8 @@ monitor:
 
 properties:
   revision : 13
-  GRAYLOG_MONGODB_URI : mongodb://mongodb-6-0-0.mongodb-6-0:27017,mongodb-6-0-1.mongodb-6-0:27017,mongodb-6-0-2.mongodb-6-0:27017/graylog?replicaSet=rs0&authSource=admin
+  GRAYLOG_MONGODB_URI : mongodb://mongodb-6-0:27017/graylog
+  #GRAYLOG_MONGODB_URI : mongodb://mongodb-6-0-0.mongodb-6-0:27017,mongodb-6-0-1.mongodb-6-0:27017,mongodb-6-0-2.mongodb-6-0:27017/graylog?replicaSet=rs0&authSource=admin
   GRAYLOG_ELASTICSEARCH_HOSTS : http://opensearch-2-13-0.opensearch-2-13:9200/,http://opensearch-2-13-1.opensearch-2-13:9200/,http://opensearch-2-13-2.opensearch-2-13:9200/
   GRAYLOG_ELASTICSEARCH_DISCOVERY_ENABLED : true
   GRAYLOG_ROOT_PASSWORD_SHA2 : 8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918

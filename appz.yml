@@ -30,7 +30,7 @@ monitor:
   notify: srswain@ecloudcontrol.com      
 
 properties:
-  revision : 18
+  revision : 19
   GRAYLOG_MONGODB_URI : mongodb://mongodb-6-0:27017/graylog
   #GRAYLOG_MONGODB_URI : mongodb://mongodb-6-0-0.mongodb-6-0:27017,mongodb-6-0-1.mongodb-6-0:27017,mongodb-6-0-2.mongodb-6-0:27017/graylog?replicaSet=rs0&authSource=admin
   GRAYLOG_ELASTICSEARCH_HOSTS : http://opensearch-2-13-0.opensearch-2-13:9200/,http://opensearch-2-13-1.opensearch-2-13:9200/,http://opensearch-2-13-2.opensearch-2-13:9200,http://opensearch-2-13-3.opensearch-2-13:9200/,http://opensearch-2-13-4.opensearch-2-13:9200/,http://opensearch-2-13-5.opensearch-2-13:9200/,http://opensearch-2-13-6.opensearch-2-13:9200/

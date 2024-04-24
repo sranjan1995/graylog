@@ -30,7 +30,7 @@ monitor:
   notify: srswain@ecloudcontrol.com      
 
 properties:
-  revision : 44
+  revision : 45
   TZ : Asia/Kolkata
   GRAYLOG_MONGODB_URI : mongodb://mongodb-6-0:27017/graylog
   #GRAYLOG_MONGODB_URI : mongodb://mongodb-6-0-0.mongodb-6-0:27017,mongodb-6-0-1.mongodb-6-0:27017,mongodb-6-0-2.mongodb-6-0:27017/graylog?replicaSet=rs0&authSource=admin

@@ -12,7 +12,7 @@ build:
   #image_name: sranjan1995/log-collector-gl
 
 deploy:
-  context: sranjan1995/DEV
+  context: smruti/DEV
   type: statefulset
   replicas: 2
   port:

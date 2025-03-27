@@ -26,7 +26,7 @@ volumes:
   mode: ReadWriteOnce   
 
 properties:
-  revision : 4
+  revision : 5
   GRAYLOG_MONGODB_URI : mongodb://mongodb-6-0:27017/graylog
   GRAYLOG_ELASTICSEARCH_HOSTS : http://opensearch-2-13-0.opensearch-2-13:9200/,http://opensearch-2-13-1.opensearch-2-13:9200/,http://opensearch-2-13-2.opensearch-2-13:9200/
   #GRAYLOG_ELASTICSEARCH_HOSTS : http://opensearch-2-13-0.opensearch-2-13:9200/,http://opensearch-2-13-1.opensearch-2-13:9200/,http://opensearch-2-13-2.opensearch-2-13:9200/,http://opensearch-2-13-3.opensearch-2-13:9200/,http://opensearch-2-13-4.opensearch-2-13:9200/
@@ -45,7 +45,7 @@ properties:
   GRAYLOG_OUTPUTBUFFER_PROCESSORS : 6
   OUTPUT_BATCH_SIZE : 500
   #JAVA_HEAP_SIZE : 12g
-  JAVA_HEAP_SIZE : 6g
+  JAVA_HEAP_SIZE : 4g
   RING_SIZE : 131072
   GRAYLOG_PROMETHEUS_EXPORTER_ENABLED : true
   GRAYLOG_PROMETHEUS_EXPORTER_BIND_ADDRESS : 0.0.0.0:9833

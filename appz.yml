@@ -4,11 +4,11 @@ app:
   notify: appz@cloudbourne.co
 
 build:
-  version: 3.1
+  version: 6.3
   env: DEV
   build_file: none
   output_files: output/*.zip
-  image_template: graylog-3.1
+  image_template: graylog-6.3
   image_name: alpha/log-collector-gl
 
 deploy:
@@ -28,7 +28,10 @@ monitor:
 
 properties:
   revision : 25
-  GRAYLOG_MONGODB_URI : mongodb://appz-logcollectordb-3-1:27017/graylog  
-  GRAYLOG_ELASTICSEARCH_HOSTS : http://appz-logcollectores-3-1:9200/
+  GRAYLOG_MONGODB_URI : mongodb://appz-logcollectordb-8-0:27017/graylog
+  GRAYLOG_ELASTICSEARCH_HOSTS : http://appz-logcollectores-2-15:9200/
   GRAYLOG_ELASTICSEARCH_DISCOVERY_ENABLED : false
-  GRAYLOG_ROOT_PASSWORD_SHA2 : aee6e0898de4b1316dabd00451ebeb3ec9e7fd9c03520497eff2b0a29bfdc776
+  GRAYLOG_ROOT_PASSWORD_SHA2 : {{lcsecret_sha}}
+  GRAYLOG_PASSWORD_SECRET : "{{graylog_password_secret}}"
+  OPENSEARCH_INITIAL_ADMIN_PASSWORD : "{{opensearch_initial_admin_password}}"
+  

@@ -1,19 +1,19 @@
 app:
-  name: LogCollectorGL
-  code: LCGL
-  notify: appz@cloudbourne.co
+  name: GrayLog
+  code: GrayLog
+  notify: srswain@ecloudcontrol.com
 
 build:
-  version: 6.3
+  version: 7.0
   env: DEV
   build_file: none
   output_files: output/*.zip
-  image_template: graylog-6.3
-  image_name: alpha/log-collector-gl
+  image_template: graylog-7.0
 
 deploy:
-  context: alpha/DEV
+  context: sranjan1995/DEV
   replicas: 1
+  type: statefulset
   port:
   - 9000
   - 12201
@@ -22,16 +22,38 @@ volumes:
 - claim: graylog-data
   mount: /usr/share/graylog/data/journal
   name: graylog-data
-
-monitor:
-  notify: appzops@cloudbourne.co      
+  size: 5Gi
+  mode: ReadWriteOnce   
 
 properties:
-  revision : 25
-  GRAYLOG_MONGODB_URI : mongodb://appz-logcollectordb-8-0:27017/graylog
-  GRAYLOG_ELASTICSEARCH_HOSTS : http://appz-logcollectores-2-15:9200/
-  GRAYLOG_ELASTICSEARCH_DISCOVERY_ENABLED : false
-  GRAYLOG_ROOT_PASSWORD_SHA2 : {{lcsecret_sha}}
-  GRAYLOG_PASSWORD_SECRET : "{{graylog_password_secret}}"
-  OPENSEARCH_INITIAL_ADMIN_PASSWORD : "{{opensearch_initial_admin_password}}"
-  
+  revision : 6
+  GRAYLOG_MONGODB_URI : mongodb://mongodb-6-0:27017/graylog
+  GRAYLOG_ELASTICSEARCH_HOSTS : http://opensearch-2-19-0.opensearch-2-19:9200/
+  #GRAYLOG_ELASTICSEARCH_HOSTS : http://opensearch-2-13-0.opensearch-2-13:9200/,http://opensearch-2-13-1.opensearch-2-13:9200/,http://opensearch-2-13-2.opensearch-2-13:9200/
+  #GRAYLOG_ELASTICSEARCH_HOSTS : http://opensearch-2-13-0.opensearch-2-13:9200/,http://opensearch-2-13-1.opensearch-2-13:9200/,http://opensearch-2-13-2.opensearch-2-13:9200/,http://opensearch-2-13-3.opensearch-2-13:9200/,http://opensearch-2-13-4.opensearch-2-13:9200/
+  NODE_MODE: single-node
+  GRAYLOG_ELASTICSEARCH_DISCOVERY_ENABLED : true
+  GRAYLOG_PASSWORD_SECRET:
+    vault: GRAYLOG_PASSWORD_SECRET
+  GRAYLOG_ROOT_PASSWORD_SHA2:
+    vault: GRAYLOG_ROOT_PASSWORD_SHA2
+  RETENTION_ENABLE : 1
+  ELASTICSEARCH_INDEX_TIME : PT1H
+  ELASTICSEARCH_TOTAL_INDICES : 1095
+  ELASTICSEARCH_NUMBEROF_REPLICAS : 1
+  CLEAR_JOURNAL : 1
+  GRAYLOG_PROCESSBUFFER_PROCESSORS : 12
+  GRAYLOG_OUTPUTBUFFER_PROCESSORS : 6
+  OUTPUT_BATCH_SIZE : 500
+  #JAVA_HEAP_SIZE : 12g
+  JAVA_HEAP_SIZE : 4g
+  RING_SIZE : 131072
+  GRAYLOG_PROMETHEUS_EXPORTER_ENABLED : true
+  GRAYLOG_PROMETHEUS_EXPORTER_BIND_ADDRESS : 0.0.0.0:9833
+  MINIO_HOSTNAME : http://minio-2-0:9000
+  MINIO_BUCKET : graylog-audit
+  MINIO_ACCESS_KEY : 
+    vault: MINIO_ACCESS_KEY
+  MINIO_SECRET_KEY: 
+    vault: MINIO_SECRET_KEY
+  MINIO_BACKUP_TIME : 07
